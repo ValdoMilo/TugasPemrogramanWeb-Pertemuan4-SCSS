@@ -1,0 +1,57 @@
+@use 'sass:map';
+
+$colors: (
+    primary: #6366f1,
+    primary-dark: #4f46e5,
+    accent: #06b6d4,
+    bg: #f8fafc,
+    surface: #ffffff,
+    text: #1e293b,
+    text-muted: #64748b,
+    border: #e2e8f0
+);
+
+$spacing: (
+    xs: 0.5rem,
+    sm: 1rem,
+    md: 1.5rem,
+    lg: 2.5rem,
+    xl: 4rem
+);
+
+$radius: (
+    sm: 6px,
+    md: 12px,
+    lg: 20px
+);
+
+$shadow: (
+    sm: 0 1px 3px rgba(15, 23, 42, 0.08),
+    md: 0 4px 12px rgba(15, 23, 42, 0.10),
+    lg: 0 12px 28px rgba(15, 23, 42, 0.15)
+);
+
+$font-base: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-heading: 'Poppins', 'Segoe UI', sans-serif;
+$transition: 0.3s ease;
+
+:root {
+    @each $name, $value in $colors {
+        --color-#{$name}: #{$value};
+    }
+
+    @each $name, $value in $spacing {
+        --spacing-#{$name}: #{$value};
+    }
+
+    @each $name, $value in $radius {
+        --radius-#{$name}: #{$value};
+    }
+
+    --font-family-base: #{$font-base};
+    --font-family-heading: #{$font-heading};
+    --shadow-sm: #{map.get($shadow, sm)};
+    --shadow-md: #{map.get($shadow, md)};
+    --shadow-lg: #{map.get($shadow, lg)};
+    --transition: #{$transition};
+}
