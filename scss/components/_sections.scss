@@ -1,0 +1,29 @@
+@use '../abstracts/mixins' as mixins;
+
+.section {
+    @include mixins.surface;
+    animation: fade-in-up 0.6s ease both;
+
+    &__title {
+        display: inline-block;
+        margin-bottom: var(--spacing-md);
+        padding-bottom: var(--spacing-xs);
+        color: var(--color-text);
+        font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+        border-bottom: 3px solid var(--color-primary);
+    }
+
+    &__desc {
+        margin-bottom: var(--spacing-md);
+        color: var(--color-text-muted);
+    }
+}
+
+.section:nth-child(2) { animation-delay: 0.1s; }
+.section:nth-child(3) { animation-delay: 0.2s; }
+.section:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

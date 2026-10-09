@@ -1,0 +1,24 @@
+@use '../abstracts/mixins' as mixins;
+
+.skills {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+
+    @include mixins.respond-to(700px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__group {
+        padding: var(--spacing-md);
+        background-color: var(--color-bg);
+        border-left: 4px solid var(--color-primary);
+        border-radius: var(--radius-md);
+        @include mixins.interactive-lift;
+    }
+
+    &__subtitle { margin-bottom: var(--spacing-sm); color: var(--color-primary); font-size: 1.05rem; }
+    &__list { display: flex; flex-direction: column; gap: 0.5rem; }
+    &__item { position: relative; padding-left: 1.4rem; color: var(--color-text-muted); }
+    &__item::before { content: '>'; position: absolute; left: 0; color: var(--color-accent); font-weight: bold; }
+}
